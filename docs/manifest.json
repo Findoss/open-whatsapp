@@ -1,0 +1,28 @@
+{
+  "background_color": "#000000",
+  "description": "Open-whatsapp",
+  "display": "standalone",
+  "icons": [
+    {
+      "sizes": "180x180",
+      "src": "./img/favicon-180.png",
+      "type": "image/png"
+    },
+    {
+      "sizes": "192x192",
+      "src": "./img/favicon-192.png",
+      "type": "image/png"
+    },
+    {
+      "sizes": "512x512",
+      "src": "./img/favicon-512.png",
+      "type": "image/png"
+    }
+  ],
+  "id": "/",
+  "name": "Open-whatsapp",
+  "scope": "./",
+  "short_name": "Open-whatsapp",
+  "start_url": "./",
+  "theme_color": "#000000"
+}

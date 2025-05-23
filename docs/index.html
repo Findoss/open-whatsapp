@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Open-whatsapp</title>
+
+    <link rel="manifest" href="./pwa.json" />
+
+    <script>
+      if ('serviceWorker' in navigator) {
+        // Register Service Worker on page load (if not registered before)
+        self.addEventListener('load', async () => {
+          const container = navigator.serviceWorker;
+          container.addEventListener('controllerchange', () =>
+            console.log(`SW is changed (installed or removed).`)
+          );
+          if (container.controller === null) {
+            console.log(`Register new SW for the app.`);
+            await container.register('sw.js');
+            console.log(`SW is registered.`);
+          } else console.log(`SW is already registered.`);
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <style>
+      .root {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        height: 90vh;
+      }
+
+      .phone {
+        width: 100%;
+        max-width: 400px;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+      }
+
+      .button {
+        width: 100%;
+        max-width: 400px;
+        background-color: yellowgreen;
+        border-radius: 4px;
+        height: 50px;
+      }
+    </style>
+    <div class="root">
+      <input class="phone" type="text" value="79110121949" />
+      <button class="button">OPEN</button>
+    </div>
+
+    <script>
+      const $buttonURL = document.querySelector('.button');
+
+      $buttonURL.addEventListener('click', () => {
+        const $inputURL = document.querySelector('.phone');
+        window.open(`https://wa.me/${$inputURL.value}`, '_blank');
+      });
+    </script>
+  </body>
+</html>
